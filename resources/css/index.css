@@ -1,0 +1,38 @@
+body {
+    background-color: black; 
+    color: white
+}
+
+h2 {
+    color: grey;
+}
+
+section {
+    border: solid teal;
+    border-radius: 25px;
+    padding: 0px 20px 20px 20px;
+}
+
+.qlink {
+    border: solid white;
+    border-radius: 25px;
+    display:inline-block; 
+    width: 120px; 
+    height: 120px; 
+    padding:0; 
+    overflow: hidden; 
+    background-color: white;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    margin: 5px;
+}
+
+.qlink:hover {
+    border: solid teal;
+}
+
+.link_section {
+    margin-top: 15px; 
+    margin-bottom: 15px;
+}
