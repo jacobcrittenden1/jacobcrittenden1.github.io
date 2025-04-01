@@ -3,14 +3,83 @@ body {
     color: white
 }
 
+header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+h1 {
+    display:inline;
+    font-size: 60px;
+    padding-top: 0;
+    margin-left: 15px;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+.navbar li {
+    padding: 0px 8px;
+    font-size: 24px;
+}
+
+.navbar li a {
+    color: white; /* Link color */
+    text-decoration: none; /* Remove underline */
+  }
+
+.navbar li a:hover {
+    color: teal; /* Change color when hovered */
+  }
+
+.activeNav {
+    color: teal;
+}
+
+header a {
+    margin-left: auto;
+}
+
 h2 {
     color: grey;
+    font-size: 32px;
+    margin-top: 9px;
+    margin-bottom: 5px;
 }
 
 section {
     border: solid teal;
     border-radius: 25px;
     padding: 0px 20px 20px 20px;
+}
+
+.hlink {
+    border: solid white;
+    border-radius: 80px;
+    display: inline-block; 
+    width: 75px; 
+    height: 75px; 
+    padding:0; 
+    overflow: hidden; 
+    background-color: white;
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 0;
+    margin-right: 15px;
+}
+
+.hlink:hover {
+    border: solid teal;
 }
 
 .qlink {
@@ -33,6 +102,7 @@ section {
 }
 
 .link_section {
-    margin-top: 15px; 
-    margin-bottom: 15px;
+    margin-top: 5px; 
+    margin-bottom: 5px;
 }
+
