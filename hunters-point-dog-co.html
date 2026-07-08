@@ -1,0 +1,899 @@
+<title>Hunters Point Dog Co. — Dog Walking in Long Island City</title>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<style>
+  :root {
+    --ink: #14181a;
+    --ink-soft: #232b2c;
+    --paper: #e8e3d8;
+    --paper-raised: #f5f1e7;
+    --signal: #c23b27;
+    --signal-strong: #a32e1d;
+    --river: #3e5c58;
+    --river-soft: #5c7a75;
+    --moss: #7c8968;
+    --steel-700: #3b4240;
+    --steel-500: #656f68;
+    --steel-300: #a7ac9f;
+
+    --bg: var(--paper);
+    --bg-raised: var(--paper-raised);
+    --text: var(--ink);
+    --text-soft: var(--steel-700);
+    --text-faint: var(--steel-500);
+    --accent: var(--signal);
+    --accent-strong: var(--signal-strong);
+    --border: rgba(20, 24, 26, 0.16);
+    --border-strong: rgba(20, 24, 26, 0.32);
+    --on-accent: var(--paper-raised);
+
+    --font-display: "Futura PT", Futura, "Century Gothic", "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+    --font-body: Georgia, "Iowan Old Style", "Palatino Linotype", "Book Antiqua", serif;
+    --font-mono: ui-monospace, "SF Mono", "JetBrains Mono", "Cascadia Mono", Consolas, "Liberation Mono", monospace;
+
+    --measure: 60ch;
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14181a;
+      --bg-raised: #1c2224;
+      --text: #ede9dd;
+      --text-soft: #bfc4b8;
+      --text-faint: #8b9389;
+      --accent: #e0553d;
+      --accent-strong: #ef6a50;
+      --border: rgba(237, 233, 221, 0.16);
+      --border-strong: rgba(237, 233, 221, 0.34);
+      --on-accent: #14181a;
+      --river-soft: #7fa39c;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #14181a;
+    --bg-raised: #1c2224;
+    --text: #ede9dd;
+    --text-soft: #bfc4b8;
+    --text-faint: #8b9389;
+    --accent: #e0553d;
+    --accent-strong: #ef6a50;
+    --border: rgba(237, 233, 221, 0.16);
+    --border-strong: rgba(237, 233, 221, 0.34);
+    --on-accent: #14181a;
+    --river-soft: #7fa39c;
+  }
+  :root[data-theme="light"] {
+    --bg: var(--paper);
+    --bg-raised: var(--paper-raised);
+    --text: var(--ink);
+    --text-soft: var(--steel-700);
+    --text-faint: var(--steel-500);
+    --accent: var(--signal);
+    --accent-strong: var(--signal-strong);
+    --border: rgba(20, 24, 26, 0.16);
+    --border-strong: rgba(20, 24, 26, 0.32);
+    --on-accent: var(--paper-raised);
+    --river-soft: #5c7a75;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.001ms !important; animation-iteration-count: 1 !important; transition-duration: 0.001ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 1.0625rem;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 { font-family: var(--font-display); text-wrap: balance; margin: 0; color: var(--text); }
+
+  p { margin: 0; }
+  p + p { margin-top: 1em; }
+
+  a { color: inherit; }
+
+  img, svg { display: block; max-width: 100%; }
+
+  .measure { max-width: var(--measure); }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--accent);
+    color: var(--on-accent);
+    padding: 0.75em 1.25em;
+    z-index: 100;
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+  }
+  .skip-link:focus { left: 1rem; top: 1rem; }
+
+  .wrap {
+    max-width: 74rem;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+  }
+  @media (min-width: 900px) {
+    .wrap { padding: 0 2.5rem; }
+  }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 40;
+    background: color-mix(in srgb, var(--bg) 88%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding: 1rem 0;
+  }
+  .brand {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    min-width: 0;
+    text-decoration: none;
+    font-family: var(--font-display);
+    font-weight: 700;
+    letter-spacing: 0.01em;
+    font-size: clamp(0.85rem, 3.6vw, 1.05rem);
+    color: var(--text);
+    white-space: nowrap;
+  }
+  .brand span {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    min-width: 0;
+  }
+  .brand-mark { width: 30px; height: 30px; flex: none; color: var(--accent); }
+
+  .primary-nav { display: none; }
+  @media (min-width: 900px) {
+    .primary-nav {
+      display: flex;
+      gap: 2rem;
+      font-family: var(--font-mono);
+      font-size: 0.8125rem;
+      letter-spacing: 0.03em;
+      text-transform: uppercase;
+    }
+    .primary-nav a { text-decoration: none; color: var(--text-soft); position: relative; padding: 0.25rem 0; }
+    .primary-nav a:hover { color: var(--text); }
+    .primary-nav a::after {
+      content: "";
+      position: absolute; left: 0; right: 100%; bottom: -2px; height: 2px;
+      background: var(--accent);
+      transition: right 0.2s ease;
+    }
+    .primary-nav a:hover::after { right: 0; }
+  }
+
+  a.header-cta {
+    display: none;
+  }
+  @media (min-width: 900px) {
+    a.header-cta { display: inline-flex; }
+  }
+
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    flex: none;
+    width: 40px; height: 40px;
+    background: none;
+    border: 1px solid var(--border-strong);
+    color: var(--text);
+    cursor: pointer;
+  }
+  @media (min-width: 900px) { .nav-toggle { display: none; } }
+
+  .mobile-nav {
+    display: none;
+    flex-direction: column;
+    gap: 0;
+    border-top: 1px solid var(--border);
+    font-family: var(--font-mono);
+    text-transform: uppercase;
+    font-size: 0.875rem;
+    letter-spacing: 0.03em;
+  }
+  .mobile-nav.is-open { display: flex; }
+  .mobile-nav a {
+    padding: 0.9rem 0.25rem;
+    text-decoration: none;
+    color: var(--text-soft);
+    border-bottom: 1px solid var(--border);
+  }
+  @media (min-width: 900px) { .mobile-nav { display: none !important; } }
+
+  /* ---------- Buttons ---------- */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    text-decoration: none;
+    padding: 0.85em 1.4em;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--accent); color: var(--on-accent); }
+  .btn-primary:hover { background: var(--accent-strong); }
+  .btn-ghost { background: transparent; color: var(--text); border-color: var(--border-strong); }
+  .btn-ghost:hover { border-color: var(--accent); color: var(--accent); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    background: var(--ink);
+    color: var(--paper);
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-grid {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    gap: 2.5rem;
+    padding: 4rem 0 3rem;
+  }
+  @media (min-width: 960px) {
+    .hero-grid { grid-template-columns: 1.1fr 0.9fr; align-items: end; padding: 6rem 0 0; }
+  }
+  .eyebrow {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--accent-strong);
+  }
+  .hero .eyebrow { color: #e98066; }
+  .hero-title {
+    margin-top: 0.9rem;
+    font-size: clamp(2.5rem, 4.6vw + 1rem, 4.4rem);
+    line-height: 1.03;
+    font-weight: 700;
+    color: #f4efe4;
+  }
+  .hero-lede {
+    margin-top: 1.4rem;
+    max-width: 42ch;
+    font-family: var(--font-body);
+    font-size: 1.15rem;
+    color: #cdd2c9;
+  }
+  .hero-actions { margin-top: 2rem; display: flex; flex-wrap: wrap; gap: 1rem; }
+  .hero .btn-ghost { color: #f4efe4; border-color: rgba(244,239,228,0.35); }
+  .hero .btn-ghost:hover { border-color: var(--accent-strong); color: var(--accent-strong); }
+
+  .skyline { width: 100%; height: auto; }
+
+  /* ---------- Manifest strip ---------- */
+  .manifest {
+    background: var(--bg-raised);
+    border-bottom: 1px solid var(--border);
+  }
+  .manifest-row {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--border);
+  }
+  @media (min-width: 720px) {
+    .manifest-row { grid-template-columns: repeat(4, 1fr); }
+  }
+  .manifest-item {
+    background: var(--bg-raised);
+    padding: 1.1rem 1.25rem;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-soft);
+    text-align: center;
+  }
+
+  /* ---------- Section shell ---------- */
+  section { padding: 4.5rem 0; }
+  .section-head { margin-bottom: 2.75rem; }
+  .section-head .rule { width: 2.5rem; height: 2px; background: var(--accent); margin-bottom: 1rem; }
+  .section-head h2 {
+    margin-top: 0.6rem;
+    font-size: clamp(1.6rem, 1.4vw + 1.2rem, 2.4rem);
+    font-weight: 700;
+  }
+  .section-head p { margin-top: 0.9rem; color: var(--text-soft); max-width: 52ch; }
+
+  .reveal { opacity: 0; transform: translateY(14px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.is-visible { opacity: 1; transform: none; }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; } }
+
+  /* ---------- Services ---------- */
+  .services-list { display: grid; gap: 1px; background: var(--border); border: 1px solid var(--border); }
+  @media (min-width: 720px) { .services-list { grid-template-columns: 1fr 1fr; } }
+  .service-item {
+    background: var(--bg);
+    padding: 1.75rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+  .service-top { display: flex; align-items: baseline; justify-content: space-between; gap: 1rem; }
+  .service-name { font-family: var(--font-display); font-weight: 700; font-size: 1.15rem; }
+  .service-dur { font-family: var(--font-mono); font-size: 0.8125rem; color: var(--accent); white-space: nowrap; font-variant-numeric: tabular-nums; }
+  .service-desc { color: var(--text-soft); font-size: 0.98rem; }
+
+  /* ---------- Route / transit line ---------- */
+  .route-section { background: var(--bg-raised); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+  .route-layout { display: grid; gap: 3rem; }
+  @media (min-width: 960px) { .route-layout { grid-template-columns: 0.85fr 1.15fr; align-items: start; } }
+
+  .transit {
+    position: relative;
+    padding-left: 2.25rem;
+  }
+  .transit-line {
+    position: absolute;
+    left: 7px;
+    top: 8px;
+    bottom: 8px;
+    width: 2px;
+    background: var(--river);
+  }
+  .stop { position: relative; padding-bottom: 2rem; }
+  .stop:last-child { padding-bottom: 0; }
+  .stop::before {
+    content: "";
+    position: absolute;
+    left: -2.25rem;
+    top: 0.2rem;
+    width: 16px; height: 16px;
+    border-radius: 50%;
+    background: var(--bg-raised);
+    border: 3px solid var(--river);
+  }
+  .stop.is-terminus::before { border-color: var(--accent); background: var(--accent); }
+  .stop-name { font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+  .stop-note { color: var(--text-soft); font-size: 0.92rem; margin-top: 0.2rem; }
+
+  .neighborhoods { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.75rem; }
+  .chip {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    padding: 0.5em 0.9em;
+    border: 1px solid var(--border-strong);
+    color: var(--text-soft);
+  }
+
+  /* ---------- Process ---------- */
+  .process-list { display: grid; gap: 2rem; counter-reset: step; }
+  @media (min-width: 720px) { .process-list { grid-template-columns: repeat(4, 1fr); } }
+  .process-item { counter-increment: step; }
+  .process-num {
+    font-family: var(--font-mono);
+    font-size: 0.8125rem;
+    color: var(--accent);
+  }
+  .process-num::before { content: "0" counter(step); }
+  .process-title { margin-top: 0.6rem; font-family: var(--font-display); font-weight: 700; font-size: 1.05rem; }
+  .process-desc { margin-top: 0.5rem; color: var(--text-soft); font-size: 0.95rem; }
+
+  /* ---------- Rates ---------- */
+  .table-wrap { overflow-x: auto; border: 1px solid var(--border); }
+  table { width: 100%; border-collapse: collapse; min-width: 34rem; }
+  thead th {
+    text-align: left;
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    color: var(--text-faint);
+    padding: 0.9rem 1.25rem;
+    border-bottom: 1px solid var(--border-strong);
+    background: var(--bg-raised);
+  }
+  tbody td {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--border);
+    font-size: 0.98rem;
+  }
+  tbody tr:last-child td { border-bottom: none; }
+  td.price, th.price { text-align: right; font-variant-numeric: tabular-nums; font-family: var(--font-mono); }
+  .rates-note { margin-top: 1.25rem; color: var(--text-soft); font-size: 0.92rem; }
+
+  /* ---------- Testimonials ---------- */
+  .quotes { display: grid; gap: 1.5rem; }
+  @media (min-width: 720px) { .quotes { grid-template-columns: repeat(3, 1fr); } }
+  .quote-card {
+    background: var(--bg-raised);
+    border: 1px solid var(--border);
+    padding: 1.75rem 1.6rem 1.5rem;
+    clip-path: polygon(0 0, calc(100% - 18px) 0, 100% 18px, 100% 100%, 0 100%);
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+  .quote-text { font-family: var(--font-body); font-style: italic; color: var(--text); }
+  .quote-attr { font-family: var(--font-mono); font-size: 0.78rem; color: var(--text-soft); text-transform: uppercase; letter-spacing: 0.03em; }
+
+  /* ---------- Walkers ---------- */
+  .walkers { display: grid; gap: 1.5rem; }
+  @media (min-width: 720px) { .walkers { grid-template-columns: repeat(3, 1fr); } }
+  .walker-card { border: 1px solid var(--border); padding: 1.5rem; }
+  .walker-name { font-family: var(--font-display); font-weight: 700; }
+  .walker-role { font-family: var(--font-mono); font-size: 0.75rem; color: var(--accent); text-transform: uppercase; letter-spacing: 0.03em; margin-top: 0.3rem; }
+  .walker-note { margin-top: 0.75rem; color: var(--text-soft); font-size: 0.92rem; }
+
+  /* ---------- CTA / form ---------- */
+  .cta-section { background: var(--ink); color: var(--paper); }
+  .cta-layout { display: grid; gap: 3rem; }
+  @media (min-width: 960px) { .cta-layout { grid-template-columns: 1fr 1fr; } }
+  .cta-section .section-head p { color: #cdd2c9; }
+  .cta-section h2 { color: #f4efe4; }
+
+  .form-grid { display: grid; gap: 1rem; }
+  @media (min-width: 560px) { .form-grid.two-col { grid-template-columns: 1fr 1fr; } }
+  label { display: block; font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: #b9bfb2; margin-bottom: 0.4rem; }
+  input, select, textarea {
+    width: 100%;
+    background: #1e2527;
+    border: 1px solid rgba(244,239,228,0.2);
+    color: #f4efe4;
+    padding: 0.75em 0.9em;
+    font-family: var(--font-body);
+    font-size: 1rem;
+  }
+  input:focus, select:focus, textarea:focus { outline: 2px solid var(--accent-strong); outline-offset: 2px; border-color: transparent; }
+  textarea { resize: vertical; min-height: 5rem; }
+  .field-full { grid-column: 1 / -1; }
+
+  .contact-block { display: flex; flex-direction: column; gap: 1.5rem; }
+  .contact-line { display: flex; gap: 0.75rem; align-items: baseline; }
+  .contact-label { font-family: var(--font-mono); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.03em; color: #8b9389; width: 5.5rem; flex: none; }
+  .contact-value { color: #ede9dd; }
+
+  /* ---------- Footer ---------- */
+  footer { background: var(--ink); border-top: 1px solid rgba(244,239,228,0.14); color: #b9bfb2; padding: 2.5rem 0; }
+  .footer-row { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 1.5rem; align-items: center; font-family: var(--font-mono); font-size: 0.75rem; letter-spacing: 0.02em; }
+  .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; color: #b9bfb2; }
+  .footer-links a:hover { color: var(--accent-strong); }
+</style>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="wrap header-row">
+    <a class="brand" href="#top">
+      <svg class="brand-mark" viewBox="0 0 32 32" fill="none" aria-hidden="true">
+        <path d="M16 4c-5 0-8 4-8 9 0 6 4 8 4 12h8c0-4 4-6 4-12 0-5-3-9-8-9z" stroke="currentColor" stroke-width="1.6"/>
+        <circle cx="12" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="20" cy="10" r="1.6" fill="currentColor"/>
+        <circle cx="16" cy="7" r="1.4" fill="currentColor"/>
+      </svg>
+      <span>HUNTERS POINT DOG CO.</span>
+    </a>
+    <nav class="primary-nav" aria-label="Primary">
+      <a href="#services">Services</a>
+      <a href="#route">The Route</a>
+      <a href="#rates">Rates</a>
+      <a href="#word">Word on the Block</a>
+    </nav>
+    <a class="btn btn-primary header-cta" href="#join">Book a Meet &amp; Greet</a>
+    <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="mobile-nav" id="navToggle" aria-label="Toggle menu">
+      <svg width="18" height="14" viewBox="0 0 18 14" fill="none" aria-hidden="true">
+        <path d="M0 1H18M0 7H18M0 13H18" stroke="currentColor" stroke-width="1.6"/>
+      </svg>
+    </button>
+  </div>
+  <div class="wrap">
+    <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+      <a href="#services">Services</a>
+      <a href="#route">The Route</a>
+      <a href="#rates">Rates</a>
+      <a href="#word">Word on the Block</a>
+      <a href="#join">Book a Meet &amp; Greet</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow">Long Island City, Queens</p>
+        <h1 class="hero-title">Your dog's daily walk has a river view.</h1>
+        <p class="hero-lede">Solo walks, small pack walks, and drop-in visits along the Vernon Boulevard waterfront — from Hunters Point South Park up past Gantry Plaza. Every walk timed, mapped, and photographed.</p>
+        <div class="hero-actions">
+          <a class="btn btn-primary" href="#join">Book a Meet &amp; Greet</a>
+          <a class="btn btn-ghost" href="#rates">See rates</a>
+        </div>
+      </div>
+      <svg class="skyline" viewBox="0 0 560 380" role="img" aria-labelledby="skylineTitle">
+        <title id="skylineTitle">Illustration of the Manhattan skyline across the East River, seen from the Long Island City waterfront, with a gantry crane silhouette and the Pepsi-Cola sign in the foreground</title>
+        <rect x="0" y="0" width="560" height="380" fill="#1a2123"/>
+        <g fill="#232b2c">
+          <rect x="10" y="210" width="26" height="110"/>
+          <rect x="42" y="180" width="30" height="140"/>
+          <rect x="78" y="230" width="22" height="90"/>
+          <rect x="106" y="150" width="34" height="170"/>
+          <rect x="146" y="195" width="24" height="125"/>
+          <rect x="176" y="120" width="30" height="200"/>
+          <rect x="212" y="165" width="26" height="155"/>
+          <rect x="244" y="90" width="36" height="230"/>
+          <rect x="286" y="175" width="24" height="145"/>
+          <rect x="316" y="140" width="30" height="180"/>
+          <rect x="352" y="200" width="22" height="120"/>
+          <rect x="380" y="110" width="34" height="210"/>
+          <rect x="420" y="185" width="26" height="135"/>
+          <rect x="452" y="150" width="30" height="170"/>
+          <rect x="488" y="215" width="24" height="105"/>
+          <rect x="518" y="240" width="28" height="80"/>
+        </g>
+        <g stroke="#3a4f4a" stroke-width="1">
+          <line x1="0" y1="330" x2="560" y2="330"/>
+          <line x1="0" y1="342" x2="560" y2="342"/>
+          <line x1="0" y1="354" x2="560" y2="354"/>
+          <line x1="0" y1="366" x2="560" y2="366"/>
+        </g>
+        <rect x="0" y="320" width="560" height="60" fill="#141b1c"/>
+        <g stroke="#161c1d" stroke-width="10" fill="none">
+          <path d="M60 320 L60 240 Q60 210 100 210 L140 210 Q180 210 180 240 L180 320"/>
+        </g>
+        <g stroke="#161c1d" stroke-width="10" fill="none">
+          <path d="M230 320 L230 260 Q230 235 265 235 L295 235 Q330 235 330 260 L330 320"/>
+        </g>
+        <g>
+          <rect x="404" y="150" width="86" height="30" fill="#0f1414" stroke="#c23b27" stroke-width="1.5"/>
+          <circle cx="418" cy="165" r="3" fill="#e0553d"/>
+          <circle cx="434" cy="165" r="3" fill="#e0553d"/>
+          <circle cx="450" cy="165" r="3" fill="#e0553d"/>
+          <circle cx="466" cy="165" r="3" fill="#e0553d"/>
+          <circle cx="480" cy="165" r="3" fill="#e0553d"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <div class="manifest">
+    <div class="wrap">
+      <div class="manifest-row">
+        <div class="manifest-item">Est. 2019</div>
+        <div class="manifest-item">600+ walks / mo</div>
+        <div class="manifest-item">Licensed &amp; insured</div>
+        <div class="manifest-item">GPS on every walk</div>
+      </div>
+    </div>
+  </div>
+
+  <section id="services">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="rule"></div>
+        <p class="eyebrow">Services</p>
+        <h2>Walks, built around your dog.</h2>
+        <p>Every dog gets a route and a pace that suits them — from a first-floor puppy who needs the sidewalk to a 39th-floor senior who needs the elevator line kept short.</p>
+      </div>
+      <div class="services-list reveal">
+        <div class="service-item">
+          <div class="service-top"><span class="service-name">Solo Walks</span><span class="service-dur">30 min</span></div>
+          <p class="service-desc">One dog, one walker, your pace. Good for reactive dogs, seniors, or pups who just want your walker to themselves.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-top"><span class="service-name">Small Pack Walks</span><span class="service-dur">45 min</span></div>
+          <p class="service-desc">Groups of three or four well-matched neighborhood dogs, walked together along the waterfront.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-top"><span class="service-name">Puppy Visits</span><span class="service-dur">20 min</span></div>
+          <p class="service-desc">Midday potty breaks and play for dogs still building bladder control and stamina.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-top"><span class="service-name">Drop-In Visits</span><span class="service-dur">15 min</span></div>
+          <p class="service-desc">Feeding, medication, fresh water, and a little attention while you're out of the building.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-top"><span class="service-name">Weekend &amp; Holiday Care</span><span class="service-dur">By arrangement</span></div>
+          <p class="service-desc">Extra visits for the days you're not around to walk it yourself.</p>
+        </div>
+        <div class="service-item">
+          <div class="service-top"><span class="service-name">Meet &amp; Greet</span><span class="service-dur">20 min · free</span></div>
+          <p class="service-desc">A no-leash first visit before your dog is ever walked without you there.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="route-section" id="route">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="rule"></div>
+        <p class="eyebrow">The Route</p>
+        <h2>We know every block between the bridges.</h2>
+        <p>Our regular line runs the Vernon Boulevard waterfront, south to north. We also cover the blocks just off it — anywhere a dog can get from a doorman to a patch of grass in under ten minutes.</p>
+      </div>
+      <div class="route-layout">
+        <div class="transit reveal">
+          <div class="transit-line" aria-hidden="true"></div>
+          <div class="stop is-terminus">
+            <p class="stop-name">Hunters Point South Park</p>
+            <p class="stop-note">Southern end of the line — ball fields, the pier, and the first stretch of river view.</p>
+          </div>
+          <div class="stop">
+            <p class="stop-name">Gantry Plaza State Park</p>
+            <p class="stop-note">Past the old shipping gantries and the Pepsi-Cola sign, right on the water.</p>
+          </div>
+          <div class="stop">
+            <p class="stop-name">Anable Basin</p>
+            <p class="stop-note">Quiet inlet, fewer crowds — a good stretch for dogs who need a little more space.</p>
+          </div>
+          <div class="stop">
+            <p class="stop-name">Court Square</p>
+            <p class="stop-note">Dense high-rise blocks; most of our elevator-line pickups start here.</p>
+          </div>
+          <div class="stop">
+            <p class="stop-name">Queens Plaza &amp; Dutch Kills</p>
+            <p class="stop-note">Under the tracks and just west of it — walkable in a loop back toward the water.</p>
+          </div>
+          <div class="stop is-terminus">
+            <p class="stop-name">Queensboro Bridge</p>
+            <p class="stop-note">Northern end of the line, where LIC gives way to Astoria.</p>
+          </div>
+        </div>
+        <div class="reveal">
+          <p class="measure" style="color:var(--text-soft)">If your building sits within a few blocks of this line, we almost certainly already walk it. If you're just outside it, ask — we're often willing to stretch the route for a standing client.</p>
+          <div class="neighborhoods">
+            <span class="chip">Hunters Point</span>
+            <span class="chip">Court Square</span>
+            <span class="chip">Dutch Kills</span>
+            <span class="chip">Queens Plaza</span>
+            <span class="chip">Ravenswood border</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="how-it-works">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="rule"></div>
+        <p class="eyebrow">How It Works</p>
+        <h2>How a first walk becomes a regular one.</h2>
+      </div>
+      <div class="process-list reveal">
+        <div class="process-item">
+          <p class="process-num"></p>
+          <p class="process-title">Meet &amp; Greet</p>
+          <p class="process-desc">A free 20-minute visit with you and your dog, no leash yet. We talk routine, triggers, and the route.</p>
+        </div>
+        <div class="process-item">
+          <p class="process-num"></p>
+          <p class="process-title">We Match a Walker</p>
+          <p class="process-desc">Your dog gets one or two consistent walkers, not a rotating roster.</p>
+        </div>
+        <div class="process-item">
+          <p class="process-num"></p>
+          <p class="process-title">Walk &amp; GPS Recap</p>
+          <p class="process-desc">Every walk is timed and mapped. You get the route, the duration, and a photo the moment it ends.</p>
+        </div>
+        <div class="process-item">
+          <p class="process-num"></p>
+          <p class="process-title">You Adjust Anytime</p>
+          <p class="process-desc">Add, skip, or reschedule visits with a text to your walker. No app required.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="rates">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="rule"></div>
+        <p class="eyebrow">Rates</p>
+        <h2>What it costs.</h2>
+      </div>
+      <div class="table-wrap reveal">
+        <table>
+          <thead>
+            <tr>
+              <th>Service</th>
+              <th>Duration</th>
+              <th class="price">Price</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr><td>Solo Walk</td><td>30 min</td><td class="price">$28</td></tr>
+            <tr><td>Solo Walk</td><td>60 min</td><td class="price">$42</td></tr>
+            <tr><td>Small Pack Walk</td><td>45 min</td><td class="price">$25</td></tr>
+            <tr><td>Puppy Visit</td><td>20 min</td><td class="price">$20</td></tr>
+            <tr><td>Drop-In Visit</td><td>15 min</td><td class="price">$18</td></tr>
+            <tr><td>Weekend &amp; Holiday</td><td>by arrangement</td><td class="price">+$8 / visit</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="rates-note reveal">Discounted rates for standing weekly schedules of three or more walks. The first meet &amp; greet is always free.</p>
+    </div>
+  </section>
+
+  <section id="word">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="rule"></div>
+        <p class="eyebrow">Word on the Block</p>
+        <h2>From dogs, and their owners, around the neighborhood.</h2>
+      </div>
+      <div class="quotes reveal">
+        <div class="quote-card">
+          <p class="quote-text">"Milo used to hate the elevator. Now he sits by the door at 1pm sharp."</p>
+          <p class="quote-attr">Dana R. — Hunters Point South</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">"They text a photo from Gantry Plaza every single walk. I've never once wondered where my dog is."</p>
+          <p class="quote-attr">Priyanka S. — Court Square</p>
+        </div>
+        <div class="quote-card">
+          <p class="quote-text">"Our walker knows which dogs on the route get along and which don't. That's not nothing in a building with forty dogs in it."</p>
+          <p class="quote-attr">Marcus T. — Queens Plaza</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="walkers">
+    <div class="wrap">
+      <div class="section-head reveal">
+        <div class="rule"></div>
+        <p class="eyebrow">The Walkers</p>
+        <h2>Who's holding the leash.</h2>
+      </div>
+      <div class="walkers reveal">
+        <div class="walker-card">
+          <p class="walker-name">Rosa Ibarra</p>
+          <p class="walker-role">Founder, walking since 2019</p>
+          <p class="walker-note">Started with three dogs in Hunters Point South. Still walks the early Gantry Plaza shift most mornings.</p>
+        </div>
+        <div class="walker-card">
+          <p class="walker-name">Devon Okafor</p>
+          <p class="walker-role">Pack walk lead</p>
+          <p class="walker-note">Handles most of the small pack walks — knows which dogs on the route play well together.</p>
+        </div>
+        <div class="walker-card">
+          <p class="walker-name">Sam Lindqvist</p>
+          <p class="walker-role">Puppy &amp; senior specialist</p>
+          <p class="walker-note">Covers puppy visits and slower-paced walks for older dogs across Court Square and Dutch Kills.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section" id="join">
+    <div class="wrap">
+      <div class="cta-layout">
+        <div>
+          <div class="section-head reveal">
+            <div class="rule"></div>
+            <p class="eyebrow">Join the Pack</p>
+            <h2>Let's meet your dog.</h2>
+            <p>Tell us a bit about your dog and your building, and we'll set up a free meet &amp; greet before anyone touches a leash.</p>
+          </div>
+          <div class="contact-block reveal">
+            <div class="contact-line"><span class="contact-label">Phone</span><span class="contact-value">(718) 555-0142</span></div>
+            <div class="contact-line"><span class="contact-label">Email</span><span class="contact-value">walks@hunterspointdogco.com</span></div>
+            <div class="contact-line"><span class="contact-label">Hours</span><span class="contact-value">Walks run 7am–8pm, seven days a week</span></div>
+          </div>
+        </div>
+        <form class="reveal" onsubmit="return false;">
+          <div class="form-grid two-col">
+            <div>
+              <label for="ownerName">Your name</label>
+              <input id="ownerName" name="ownerName" type="text" autocomplete="name" required="required" />
+            </div>
+            <div>
+              <label for="dogName">Dog's name</label>
+              <input id="dogName" name="dogName" type="text" required="required" />
+            </div>
+            <div>
+              <label for="neighborhood">Neighborhood</label>
+              <select id="neighborhood" name="neighborhood">
+                <option>Hunters Point</option>
+                <option>Court Square</option>
+                <option>Dutch Kills</option>
+                <option>Queens Plaza</option>
+                <option>Other / not sure</option>
+              </select>
+            </div>
+            <div>
+              <label for="phone">Phone</label>
+              <input id="phone" name="phone" type="tel" autocomplete="tel" />
+            </div>
+            <div class="field-full">
+              <label for="email">Email</label>
+              <input id="email" name="email" type="email" autocomplete="email" required="required" />
+            </div>
+            <div class="field-full">
+              <label for="message">Anything we should know?</label>
+              <textarea id="message" name="message" placeholder="Reactivity, medication, elevator quirks, favorite treats — whatever's useful."></textarea>
+            </div>
+            <div class="field-full">
+              <button class="btn btn-primary" type="submit">Request a Meet &amp; Greet</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap footer-row">
+    <span>© 2026 Hunters Point Dog Co. · Long Island City, NY</span>
+    <nav class="footer-links" aria-label="Footer">
+      <a href="#services">Services</a>
+      <a href="#route">The Route</a>
+      <a href="#rates">Rates</a>
+      <a href="#join">Contact</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('navToggle');
+    var nav = document.getElementById('mobile-nav');
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('is-open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.addEventListener('click', function (e) {
+      if (e.target.tagName === 'A') {
+        nav.classList.remove('is-open');
+        toggle.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var items = document.querySelectorAll('.reveal');
+    if (reduceMotion || !('IntersectionObserver' in window)) {
+      items.forEach(function (el) { el.classList.add('is-visible'); });
+    } else {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            io.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+      items.forEach(function (el) { io.observe(el); });
+    }
+  })();
+</script>
